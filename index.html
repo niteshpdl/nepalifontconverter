@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepali Font Converter - Modern Translation & Conversion Tools</title>
+    <link rel="stylesheet" href="assets/css/saas-main.css">
+    <link rel="stylesheet" href="assets/css/saas-responsive.css">
+    <link rel="icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@sanskrit-coders/sanscript@1.2.0/sanscript.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with logo -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/background.jpg" alt="Nepali ICT Logo" class="logo">
+                </a>
+            </div>
+        </header>
+
+        <!-- Main title section -->
+        <div class="title-section">
+            <h1>Nepali Font Converter</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-btn" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="menu-toggle" class="menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Hero section -->
+        <div class="hero">
+            <h2>Convert, Translate & Romanize Nepali Text</h2>
+            <p>Easy-to-use tools for all your Nepali language needs</p>
+        </div>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Tab Navigation -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="preeti-unicode">
+                    <i class="fas fa-exchange-alt"></i> Preeti ↔ Unicode
+                </button>
+                <button class="tab-btn" data-tab="romanize">
+                    <i class="fas fa-font"></i> Romanize
+                </button>
+                <button class="tab-btn" data-tab="translate">
+                    <i class="fas fa-language"></i> Translate
+                </button>
+            </div>
+
+            <!-- Tab Content Areas -->
+            <div class="tab-content active" id="preeti-unicode">
+                <div class="converter-box">
+                    <div class="input-area">
+                        <label for="preeti-input">Preeti Text:</label>
+                        <textarea id="preeti-input" placeholder="Type or paste Preeti text here..."></textarea>
+                    </div>
+                    
+                    <div class="conversion-controls">
+                        <button id="preeti-to-unicode-btn" class="convert-btn">
+                            <i class="fas fa-arrow-down"></i> Convert to Unicode
+                        </button>
+                        <button id="unicode-to-preeti-btn" class="convert-btn secondary">
+                            <i class="fas fa-arrow-up"></i> Convert to Preeti
+                        </button>
+                    </div>
+                    
+                    <div class="output-area">
+                        <label for="unicode-output">Unicode Output:</label>
+                        <textarea id="unicode-output"></textarea>
+                    </div>
+                    
+                    <div class="utility-bar">
+                        <div class="word-counter">
+                            <i class="fas fa-file-alt"></i> Words: <span id="preeti-word-count">0</span>
+                        </div>
+                        <div class="actions">
+                            <button id="copy-unicode-btn" class="action-btn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button id="clear-preeti-btn" class="action-btn">
+                                <i class="fas fa-trash-alt"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="romanize">
+                <div class="converter-box">
+                    <div class="input-area">
+                        <label for="devanagari-input">Devanagari Text:</label>
+                        <textarea id="devanagari-input" placeholder="Type or paste Devanagari text here..."></textarea>
+                    </div>
+                    
+                    <div class="conversion-controls">
+                        <button id="romanize-btn" class="convert-btn">
+                            <i class="fas fa-arrow-down"></i> Convert to Roman
+                        </button>
+                    </div>
+                    
+                    <div class="output-area">
+                        <label for="roman-output">Romanized Output:</label>
+                        <div id="roman-output" class="output"></div>
+                    </div>
+                    
+                    <div class="utility-bar">
+                        <div class="word-counter">
+                            <i class="fas fa-file-alt"></i> Words: <span id="romanize-word-count">0</span>
+                        </div>
+                        <div class="actions">
+                            <button id="copy-roman-btn" class="action-btn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button id="clear-roman-btn" class="action-btn">
+                                <i class="fas fa-trash-alt"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="translate">
+                <div class="converter-box">
+                    <div class="direction-toggle">
+                        <button class="direction-btn active" data-direction="en-ne">English → Nepali</button>
+                        <button class="direction-btn" data-direction="ne-en">Nepali → English</button>
+                    </div>
+                    
+                    <div class="input-area">
+                        <label id="input-language-label">English Text:</label>
+                        <textarea id="translation-input" placeholder="Enter text to translate..."></textarea>
+                    </div>
+                    
+                    <div class="conversion-controls">
+                        <button id="translate-btn" class="convert-btn">
+                            <i class="fas fa-language"></i> Translate
+                        </button>
+                        <div id="translation-loading" class="loading">
+                            <i class="fas fa-spinner fa-spin"></i> Translating...
+                        </div>
+                    </div>
+                    
+                    <div class="output-area">
+                        <label id="output-language-label">Nepali Translation:</label>
+                        <div id="translation-output" class="output"></div>
+                    </div>
+                    
+                    <div class="utility-bar">
+                        <div class="word-counter">
+                            <i class="fas fa-file-alt"></i> Words: <span id="translate-word-count">0</span>
+                        </div>
+                        <div class="actions">
+                            <button id="copy-translation-btn" class="action-btn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button id="clear-translation-btn" class="action-btn">
+                                <i class="fas fa-trash-alt"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Sharing -->
+            <div class="social-share">
+                <p>Share this tool with friends:</p>
+                <div class="share-buttons">
+                    <button class="share-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button class="share-btn twitter">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="share-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Nepali Font Converter. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="#" id="feedback-link">Feedback</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Notification container -->
+    <div class="notifications"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/saas-converters.js"></script>
+    <script src="assets/js/saas-translation.js"></script>
+    <script src="assets/js/saas-ui.js"></script>
+</body>
+</html>
